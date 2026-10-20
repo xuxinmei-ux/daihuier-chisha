@@ -1,0 +1,49 @@
+/* 转盘页样式 */
+.head {
+  padding: 6rpx 8rpx 0;
+}
+
+.pool {
+  margin-top: 28rpx;
+  text-align: center;
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+.bottom {
+  padding: 10rpx 8rpx 0;
+}
+
+.foot-note {
+  margin-top: 24rpx;
+  text-align: center;
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #333333;
+}
+
+/* 空状态 */
+.empty {
+  padding: 48rpx 40rpx;
+  text-align: center;
+}
+
+.empty-emoji {
+  font-size: 110rpx;
+  line-height: 1;
+}
+
+.empty-title {
+  margin-top: 22rpx;
+  font-size: 40rpx;
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.empty-sub {
+  margin: 16rpx 0 36rpx;
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 1.5;
+}

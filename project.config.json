@@ -1,0 +1,80 @@
+{
+  "description": "待会儿吃啥333 —— 选择困难症终结者（腾讯位置服务版，工具类，无后端/无UGC）",
+  "appid": "touristappid",
+  "projectname": "待会儿吃啥333",
+  "compileType": "miniprogram",
+  "libVersion": "3.5.5",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "coverView": true,
+    "ignoreUploadUnusedFiles": true,
+    "packNpmManually": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "首页",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "转盘页",
+          "pathName": "pages/spin/spin",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "结果页",
+          "pathName": "pages/result/result",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "folder",
+        "value": "screenshots"
+      },
+      {
+        "type": "file",
+        "value": "README.md"
+      },
+      {
+        "type": "file",
+        "value": "CONTRIBUTING.md"
+      },
+      {
+        "type": "file",
+        "value": "video_script.md"
+      }
+    ],
+    "include": []
+  },
+  "editorSetting": {},
+  "isGameTourist": false
+}

@@ -1,0 +1,81 @@
+<!-- 首页：定位 →（半径 / 排除，可跳过）→ 转！别想了 -->
+<view class="bg"></view>
+<view class="bg-dots"></view>
+
+<view class="page">
+  <view class="hero">
+    <view class="title ink">待会儿吃啥</view>
+    <view class="subtitle">{{tip}}</view>
+  </view>
+
+
+  <!-- 定位状态卡：点一下重新定位 -->
+  <view class="card sticker tilt-l locate" bindtap="onLocateTap">
+    <view class="locate-emoji">{{locating ? '📡' : (located ? '📍' : '🙈')}}</view>
+    <view class="locate-body">
+      <view class="locate-main">{{locating ? '正在定位…' : (located ? ('已锁定' + (locLabel ? ' · ' + locLabel : '你附近')) : '还没拿到你的位置')}}</view>
+      <view class="locate-sub">{{locating ? '等一下就好，正在问你要位置' : (located ? (locHint || '点这里可以重新定位') : '点这里再试一次，或去设置里打开定位')}}</view>
+    </view>
+  </view>
+
+  <!-- GPS 不准时的兜底：自己在地图上点准确位置 -->
+  <view class="locate-pick" bindtap="onPickLocation">位置不对？在地图上点准确位置</view>
+
+  <!-- 半径：3 档，默认值按是否午饭高峰智能给 -->
+  <view class="card sticker tilt-r">
+    <view class="card-title">找多远<view class="badge">{{radius}}m</view></view>
+    <view class="chips chips-wrap">
+      <view wx:for="{{radiusOptions}}" wx:key="*this" class="chip {{radius === item ? 'chip-on' : ''}}"
+            data-value="{{item}}" bindtap="onRadiusTap">{{item}}m</view>
+    </view>
+    <view class="hint">{{radiusHint}}</view>
+  </view>
+
+  <!-- 排除法分类：折叠区，默认收起 -->
+  <view class="card sticker">
+    <view class="fold-head" bindtap="toggleExclude">
+      <view class="card-title">不想吃啥<view wx:if="{{excluded.length}}" class="badge">已排 {{excluded.length}}</view></view>
+      <view class="fold-arrow {{showExclude ? 'fold-up' : ''}}">▼</view>
+    </view>
+
+    <block wx:if="{{showExclude}}">
+      <view class="chips chips-wrap">
+        <view wx:for="{{categories}}" wx:key="key" class="chip {{item.off ? 'chip-off' : ''}}"
+              data-key="{{item.key}}" bindtap="onCategoryTap">{{item.emoji}} {{item.key}}</view>
+      </view>
+      <view class="fold-foot">
+        <view class="mini-btn" catchtap="clearExclude">全部恢复</view>
+        <view class="fold-note">点一下就是今天不吃这个</view>
+      </view>
+    </block>
+    <view wx:else class="hint">把不想吃的排掉，转盘里只留你还能接受的</view>
+  </view>
+
+  <view class="grow"></view>
+
+  <!-- 底部主按钮：一次定生死 -->
+  <view class="bottom">
+    <view class="btn {{busy ? 'btn-off' : 'btn-main shake'}}" hover-class="btn-hover" bindtap="onStart">转！别想了</view>
+    <view class="foot-note">今天还能「不服再转」{{remain}} 次 · 首转不计数</view>
+  </view>
+</view>
+
+<!-- 搜索中：全屏遮罩顺手挡住连点 -->
+<view wx:if="{{busy}}" class="mask">
+  <view class="sticker mask-card">
+    <view class="mask-emoji spin-emoji">⏳</view>
+    <view class="mask-text">{{loadingText}}</view>
+    <view class="mask-sub">正在搜 {{radius}}m 内的店…</view>
+  </view>
+</view>
+
+<!-- 授权被拒引导：遮罩点一下关掉，卡片内部不穿透 -->
+<view wx:if="{{deny}}" class="mask" catchtap="closeDeny">
+  <view class="sticker mask-card pop" catchtap="noop">
+    <view class="mask-emoji floaty">📍</view>
+    <view class="mask-text">没定位就不知道附近有啥</view>
+    <view class="mask-sub">只在你同意后读一次位置，用来搜附近的店，不保存、不上传。</view>
+    <view class="btn btn-main" hover-class="btn-hover" catchtap="openSetting">去开启定位</view>
+    <view class="btn btn-ghost" hover-class="btn-hover" catchtap="closeDeny">先随便看看</view>
+  </view>
+</view>

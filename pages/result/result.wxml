@@ -1,0 +1,31 @@
+<!-- 结果页：只给店名 / 距离 / 品类 / 地址 + 导航，不显示评分评价图片 -->
+<view class="bg"></view>
+<view class="bg-dots"></view>
+
+<view class="page">
+  <view class="head">
+    <view class="title-sm ink">命运安排：</view>
+    <view class="subtitle">{{tip}}</view>
+  </view>
+
+  <view class="sticker card pop">
+    <view class="card-emoji floaty">{{pick.emoji}}</view>
+    <view class="shop-name">{{pick.name}}</view>
+
+    <view class="meta-row">
+      <view class="meta-pill">🚶 {{distanceText}}</view>
+      <view class="meta-pill">{{pick.catKey || '美食'}}</view>
+    </view>
+
+    <view class="addr">📮 {{pick.address}}</view>
+  </view>
+
+  <view class="grow"></view>
+
+  <view class="bottom">
+    <view class="btn btn-main" hover-class="btn-hover" bindtap="onNav">导航去这里</view>
+    <view class="btn {{over ? 'btn-off' : 'btn-pop'}}" hover-class="btn-hover" bindtap="onAgain">{{againText}}</view>
+    <view class="btn btn-ghost" hover-class="btn-hover" bindtap="goHome">返回首页</view>
+    <view class="foot-note">今天还能「不服再转」{{remain}} 次</view>
+  </view>
+</view>

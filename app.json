@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/spin/spin",
+    "pages/result/result"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#FFD93D",
+    "navigationBarBackgroundColor": "#FFD93D",
+    "navigationBarTitleText": "待会儿吃啥",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于搜索你附近的餐厅，让命运替你选一家店"
+    }
+  },
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

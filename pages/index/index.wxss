@@ -1,0 +1,174 @@
+/* 首页样式：贴纸卡片 + 撞色 + 轻微旋转的"歪"感 */
+.hero {
+  padding: 6rpx 8rpx 30rpx;
+}
+
+.hero .title {
+  display: inline-block;
+  transform: rotate(-2.2deg);
+}
+
+.hero .subtitle {
+  transform: rotate(-.6deg);
+}
+
+
+.card {
+  margin: 0 8rpx 26rpx;
+  padding: 34rpx 30rpx;
+}
+
+/* 手动选点兜底（GPS 不准时用） */
+.locate-pick {
+  margin: -12rpx 8rpx 26rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: rgba(0, 0, 0, .45);
+  text-decoration: underline;
+}
+
+/* 定位卡 */
+.locate {
+  display: flex;
+  align-items: center;
+}
+
+.locate-emoji {
+  width: 100rpx;
+  text-align: center;
+  font-size: 66rpx;
+  line-height: 1;
+}
+
+.locate-body {
+  flex: 1;
+  padding-left: 12rpx;
+}
+
+.locate-main {
+  font-size: 40rpx;
+  font-weight: 900;
+}
+
+.locate-sub {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #777777;
+}
+
+/* 卡片标题 + 数量徽标 */
+.card-title {
+  display: flex;
+  align-items: center;
+  font-size: 36rpx;
+  font-weight: 900;
+}
+
+.badge {
+  margin-left: 14rpx;
+  padding: 0 14rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  border-radius: 22rpx;
+  background: #FF4D6D;
+  color: #FFFFFF;
+  font-size: 24rpx;
+}
+
+/* 选项胶囊 */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 18rpx -8rpx 0;
+}
+
+.chip {
+  flex: 1 1 28%;
+  margin: 8rpx;
+  padding: 22rpx 0;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 900;
+  color: #111111;
+  background: #FFFFFF;
+  border: 6rpx solid #111111;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+}
+
+.chip-on {
+  background: #111111;
+  color: #FFE353;
+  box-shadow: 6rpx 6rpx 0 #FF4D6D;
+}
+
+.chip-off {
+  background: #FF4D6D;
+  color: #FFFFFF;
+  box-shadow: 6rpx 6rpx 0 #111111;
+}
+
+/* 让最后一行不满时不被拉伸 */
+.chips-wrap::after {
+  content: '';
+  flex: 1 1 28%;
+  margin: 8rpx;
+}
+
+.hint {
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  line-height: 1.5;
+  color: #666666;
+}
+
+/* 折叠区 */
+.fold-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fold-arrow {
+  font-size: 26rpx;
+  color: #555555;
+  transition: transform .2s ease;
+}
+
+.fold-up {
+  transform: rotate(180deg);
+}
+
+.fold-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18rpx;
+}
+
+.mini-btn {
+  padding: 14rpx 26rpx;
+  font-size: 24rpx;
+  font-weight: 900;
+  background: #FFE353;
+  border: 6rpx solid #111111;
+  border-radius: 26rpx;
+}
+
+.fold-note {
+  font-size: 22rpx;
+  color: #888888;
+}
+
+/* 底部主按钮 */
+.bottom {
+  padding: 10rpx 8rpx 0;
+}
+
+.foot-note {
+  margin-top: 24rpx;
+  text-align: center;
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #333333;
+}

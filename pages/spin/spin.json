@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "wheel": "/components/wheel/wheel"
+  },
+  "navigationBarTitleText": "转不转？",
+  "backgroundColor": "#FF8A3D"
+}

@@ -1,0 +1,35 @@
+<!-- 转盘页：候选 2-8 家上转盘，< 2 家走空状态 -->
+<view class="bg"></view>
+<view class="bg-dots"></view>
+
+<view class="page">
+  <view class="head">
+    <view class="title-sm ink">转不转？</view>
+    <view class="subtitle">{{tip}}</view>
+  </view>
+
+  <block wx:if="{{items.length >= 2}}">
+    <wheel id="wheel" items="{{items}}" bind:stopend="onStopEnd"></wheel>
+
+    <view class="pool">候选 {{items.length}} 家 · 附近一共 {{total}} 家</view>
+
+    <view class="grow"></view>
+
+    <view class="bottom">
+      <view class="btn {{spinning === 0 ? 'btn-main shake' : 'btn-pop'}}" hover-class="btn-hover"
+            bindtap="onMainTap">{{mainText}}</view>
+      <view class="foot-note">今日剩余「不服再转」{{remain}} 次</view>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="grow"></view>
+    <view class="sticker empty pop">
+      <view class="empty-emoji floaty">🕳️</view>
+      <view class="empty-title">附近没饭吃？扩大范围试试</view>
+      <view class="empty-sub">{{emptySub}}</view>
+      <view class="btn btn-main" hover-class="btn-hover" bindtap="goHome">回到首页改半径</view>
+    </view>
+    <view class="grow"></view>
+  </block>
+</view>

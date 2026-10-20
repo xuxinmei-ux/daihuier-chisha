@@ -1,0 +1,26 @@
+<!-- 转盘：纯 CSS 实现，无 Canvas、无图片 -->
+<view class="wheel-wrap">
+  <!-- 指针：固定在 12 点方向 -->
+  <view class="pointer"></view>
+
+  <view class="disc" style="transform: rotate({{angle}}deg); transition: {{transition}}; animation: {{animation}};">
+    <!-- 扇区：conic-gradient 一次画完，零 Canvas
+         兼容兜底：若个别低版本 WebView 不支持 conic-gradient，可改成
+         <view wx:for="{{sectors}}" class="sector" style="clip-path: polygon(50% 50%, ...)"> ，
+         多边形点位用 item.rot 与扇区宽度在 JS 里算（utils/wheel.js 已提供角度） -->
+    <view class="sectors" style="background: {{gradient}};"></view>
+
+    <!-- 扇区文字：外层沿半径旋转定位，内层反向转回来保持水平可读 -->
+    <view wx:for="{{sectors}}" wx:key="rot" class="label" style="transform: rotate({{item.rot}}deg);">
+      <view class="label-inner" style="transform: rotate(-{{item.rot}}deg);">
+        <view class="label-emoji">{{item.emoji}}</view>
+        <view class="label-text">{{item.short}}</view>
+      </view>
+    </view>
+
+    <view class="hub">
+      <view class="hub-num">{{items.length}}</view>
+      <view class="hub-sub">家</view>
+    </view>
+  </view>
+</view>
